@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Jogo, Loja
+from .models import Jogo, Loja, Cliente
 
 # Register your models here.
 
@@ -13,4 +13,10 @@ class LojaAdmin(admin.ModelAdmin):
     list_display = ('nome', 'endereco', 'telefone')
 
 admin.site.register(Loja, LojaAdmin)
+    
+
+class ClienteAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'endereco', 'telefone')
+
+admin.site.register(Cliente, ClienteAdmin)
     

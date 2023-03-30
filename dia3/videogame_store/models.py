@@ -16,3 +16,11 @@ class Loja(models.Model):
     
     def __str__(self):
         return self.nome;
+
+class Cliente(models.Model):
+    nome = models.CharField(max_length=100);
+    endereco = models.CharField(max_length=150);
+    telefone = models.CharField(max_length=12);
+    
+    def __str__(self):
+        return self.nome;
