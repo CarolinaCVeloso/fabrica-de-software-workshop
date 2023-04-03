@@ -9,7 +9,7 @@ class Advogado(models.Model):
     area = models.CharField(max_length=50)
 
     def __str__(self):
-        return str(self.nome);
+        return self.nome;
 
 class Cliente(models.Model):
     nome = models.CharField(max_length=100);
@@ -18,7 +18,7 @@ class Cliente(models.Model):
     telefone = models.CharField(max_length=12);
 
     def __str__(self):
-        return str(self.nome);
+        return self.nome;
 
 class Processo(models.Model):
 
@@ -30,7 +30,6 @@ class Processo(models.Model):
     informacoes = models.TextField(blank=True, default='', verbose_name='Informações')
     responsavel = models.ForeignKey(Advogado, related_name='responsavel',on_delete=models.DO_NOTHING, verbose_name='Responsável', null=True)
    
-
     def __str__(self):
-        return str(self.numero);
+        return self.numero;
 

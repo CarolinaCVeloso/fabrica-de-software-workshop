@@ -14,18 +14,20 @@ class ClienteSerializer(serializers.ModelSerializer):
 
 
 class ProcessoSerializer(serializers.ModelSerializer):
-
-    parte_nome = serializers.SerializerMethodField()
-
-    responsavel_nome = serializers.SerializerMethodField()
-
+    parte = serializers.SlugRelatedField(
+        many=False,
+        slug_field='nome',
+        read_only=False,
+        queryset=Cliente.objects.all(),
+    )
+    responsavel = serializers.SlugRelatedField(
+        many=False,
+        slug_field='nome',
+        read_only=False,
+        queryset=Advogado.objects.all(),
+    )
 
     class Meta:
         model = Processo
         fields = '__all__'
      
-    def get_parte_nome(self, obj):
-        return obj.parte.nome
-
-    def get_responsavel_nome(self, obj):
-        return obj.responsavel.nome
